@@ -1,0 +1,77 @@
+<% @cart.orderables.each do |orderable| %>
+  <% style = orderable.style %>
+  <div id="<%= "cart-#{style.id}" %>">
+    <div style="display:flex;justify-content:space-between;margin: 0em 5em;">
+      <strong>Назвние:</strong>
+      <%= style.title %>
+      <strong>Описание:</strong>
+      <%= style.description %>
+      <strong>Цена:</strong>
+      <%= style.price %>
+      <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: style.id %>
+        <%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
+        <%= f.submit "Добавить в расписание" %>
+      <% end %>
+      <%= form_with(url: cart_remove_path) do |f| %>
+        <%= f.hidden_field :id, value: orderable.id %>
+        <%= f.submit "X" %>
+      <% end %>
+      <strong>Всего к оплате:</strong>
+      <%= orderable.total %>
+    </div>
+  </div>
+<% end %>
+<style>
+/* Заголовок */
+h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Таблица */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th, tbody td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Строки */
+tbody tr {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Ссылки в таблице */
+tbody tr td a {
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* Ссылки внизу страницы */
+p a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Ссылка "Назад" */
+p a:last-child {
+  margin-left: 20px;
+  background-color: #333;
+}</style>

@@ -1,0 +1,63 @@
+<h1>Информация о программах</h1>
+
+<p><strong>Название:</strong> <%= @style.title %></p>
+<p><strong>Описание:</strong> <%= @style.description %></p>
+<p><strong>Цена:</strong> <%= @style.price %></p>
+<p><strong>Зал:</strong> <%= @style.location %></p>
+
+<p><%= link_to 'Редактировать', edit_style_path(@style) %></p>
+<p><%= link_to 'Назад', styles_path %></p>
+<style>/* Заголовок */
+h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Контейнер информации */
+.info-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Заголовки полей */
+.info-container strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Значения полей */
+.info-container p {
+  margin-bottom: 10px;
+}
+
+/* Ссылка "Редактировать" */
+p a.edit-link {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Ссылка "Назад" */
+p a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Ссылка "Назад" при наведении */
+p a:hover {
+  background-color: #0056b3;
+}</style>

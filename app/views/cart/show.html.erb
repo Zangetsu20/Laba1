@@ -1,0 +1,61 @@
+<h1>Ваши записи</h1>
+<% @cart.orderables.each do |orderable| %>
+  <% style = orderable.style %>
+  <p><%= style.title %> * <%= orderable.quantity %> = $<%= style.price * orderable.quantity %></p>
+
+       <%= render partial: "cart/cart" if @render_cart %>
+<% end %>
+<p>Всего: $<%= @cart.total %> </p>
+<style>
+/* Заголовок */
+h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Таблица */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th, tbody td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Строки */
+tbody tr {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Ссылки в таблице */
+tbody tr td a {
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* Ссылки внизу страницы */
+p a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Ссылка "Назад" */
+p a:last-child {
+  margin-left: 20px;
+  background-color: #333;
+}</style>
